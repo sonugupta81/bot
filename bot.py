@@ -12,6 +12,7 @@ from telegram.request import HTTPXRequest
 import config
 import database
 from handlers import owner, channel, broadcast, user
+from keep_alive import keep_alive
 
 # Logging setup
 logging.basicConfig(
@@ -58,6 +59,7 @@ def main():
 
     # Start
     print(f"Bot started! Owner: {config.OWNER_USERNAME}")
+    keep_alive()
     application.run_polling()
 
 if __name__ == '__main__':
